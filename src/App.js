@@ -7,6 +7,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import Userfront from "@userfront/react";
+import "./App.css";
 
 Userfront.init("demo1234");
 
