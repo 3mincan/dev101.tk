@@ -1,57 +1,116 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
+import Userfront from "@userfront/react";
 
-function App() {
-  const [date, setDate] = useState(null);
-  useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.text();
-      setDate(newDate);
-    }
-    getDate();
-  }, []);
+Userfront.init("demo1234");
+
+const SignupForm = Userfront.build({
+  toolId: "nkmbbm",
+});
+const LoginForm = Userfront.build({
+  toolId: "alnkkd",
+});
+const PasswordResetForm = Userfront.build({
+  toolId: "dkbmmo",
+});
+
+export default function App() {
   return (
-    <main>
-      <h1>Create React App + Go API</h1>
-      <h2>
-        Deployed with{' '}
-        <a
-          href="https://vercel.com/docs"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Vercel
-        </a>
-        !
-      </h2>
-      <p>
-        <a
-          href="https://github.com/vercel/vercel/tree/master/examples/create-react-app"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          This project
-        </a>{' '}
-        was bootstrapped with{' '}
-        <a href="https://facebook.github.io/create-react-app/">
-          Create React App
-        </a>{' '}
-        and contains three directories, <code>/public</code> for static assets,{' '}
-        <code>/src</code> for components and content, and <code>/api</code>{' '}
-        which contains a serverless <a href="https://golang.org/">Go</a>{' '}
-        function. See{' '}
-        <a href="/api/date">
-          <code>api/date</code> for the Date API with Go
-        </a>
-        .
-      </p>
-      <br />
-      <h2>The date according to Go is:</h2>
-      <p>{date ? date : 'Loading date...'}</p>
-    </main>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/reset">Reset</Link>
+            </li>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/reset">
+            <PasswordReset />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+function Home() {
+  return (
+    <div>
+      <h2>Home</h2>
+      <SignupForm />
+    </div>
+  );
+}
+
+function Login() {
+  return (
+    <div>
+      <h2>Login</h2>
+      <LoginForm />
+    </div>
+  );
+}
+
+function PasswordReset() {
+  return (
+    <div>
+      <h2>Password Reset</h2>
+      <PasswordResetForm />
+    </div>
+  );
+}
+
+function Dashboard() {
+  function renderFn({ location }) {
+    // If the user is not logged in, redirect to login
+    if (!Userfront.accessToken()) {
+      return (
+        <Redirect
+          to={{
+            pathname: "/login",
+            state: { from: location },
+          }}
+        />
+      );
+    }
+
+    // If the user is logged in, show the dashboard
+    const userData = JSON.stringify(Userfront.user, null, 2);
+    return (
+      <div>
+        <h2>Dashboard</h2>
+        <pre>{userData}</pre>
+        <button onClick={Userfront.logout}>Logout</button>
+      </div>
+    );
+  }
+
+  return <Route render={renderFn} />;
+}
