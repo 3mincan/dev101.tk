@@ -9,7 +9,7 @@ import {
 import Userfront from "@userfront/react";
 import "./App.css";
 
-Userfront.init("demo1234");
+Userfront.init("7n8wd5b6");
 
 const SignupForm = Userfront.build({
   toolId: "nkmbbm",
