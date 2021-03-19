@@ -12,13 +12,17 @@ import "./App.css";
 Userfront.init("7n8wd5b6");
 
 const SignupForm = Userfront.build({
-  toolId: "nkmbbm",
+  toolId: "bmarma",
 });
 const LoginForm = Userfront.build({
-  toolId: "alnkkd",
+  toolId: "ldlkdb",
 });
 const PasswordResetForm = Userfront.build({
-  toolId: "dkbmmo",
+  toolId: "nakokm",
+});
+
+const LogoutButton = Userfront.build({
+  toolId: "kldndo",
 });
 
 export default function App() {
@@ -108,7 +112,9 @@ function Dashboard() {
       <div>
         <h2>Dashboard</h2>
         <pre>{userData}</pre>
-        <button onClick={Userfront.logout}>Logout</button>
+        <button onClick={Userfront.logout}>
+          <LogoutButton />
+        </button>
       </div>
     );
   }
