@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@userfront/react": "^0.1.19",
+    "node-sass": "^4.14.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
+    "react-hook-form": "^6.15.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "2.1.1"
   },
