@@ -4,6 +4,7 @@ import Userfront from "@userfront/react";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
+import Footer from "./components/Footer";
 import "./App.scss";
 
 Userfront.init("7n8wd5b6");
@@ -51,6 +52,7 @@ export default function App() {
             <Home />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

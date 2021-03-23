@@ -1,7 +1,8 @@
 import axios from "axios";
+
 const apiEndpoint = "https://blogbackend.vercel.app/";
 
-export const fetchPosts = async () => await axios.get(`${apiEndpoint}posts`);
+// export const fetchPosts = async () => await axios.get(`${apiEndpoint}posts`);
 
 export const fetchSinglePost = async (id) =>
   await axios.get(`${apiEndpoint}${id}`);
