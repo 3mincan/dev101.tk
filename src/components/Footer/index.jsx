@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 const Footer = () => {
@@ -7,55 +7,52 @@ const Footer = () => {
     <footer className="flex-rw">
       <ul className="footer-list-top">
         <li>
-          <h4 className="footer-list-header">Menu</h4>
+          <h4 className="footer-list-header">Office</h4>
         </li>
         <li>
           <a href="#" itemProp="significantLink">
-            ITEM 1
+            Address
           </a>
         </li>
         <li>
           <a href="#" itemProp="significantLink">
-            ITEM 2
+            Phone
           </a>
         </li>
         <li>
           <a href="#" itemProp="significantLink">
-            ITEM 3
+            etc
           </a>
         </li>
       </ul>
       <ul className="footer-list-top">
         <li>
-          <h4 className="footer-list-header">Menu 2</h4>
+          <h4 className="footer-list-header">Social</h4>
         </li>
 
         <li>
-          <a href="#">ITEM 1</a>
+          <a href="#">Facebook</a>
         </li>
         <li>
-          <a href="#">ITEM 2</a>
+          <a href="#">Twitter</a>
         </li>
         <li>
-          <a href="#">ITEM 3</a>
+          <a href="#">Instagram</a>
         </li>
       </ul>
       <ul className="footer-list-top">
         <li id="help">
-          <h4 className="footer-list-header">Admin Area</h4>
+          <h4 className="footer-list-header">Menu</h4>
         </li>
 
         <li>
-          <Link to="/">HOME</Link>
+          <Link to="/">Portfolio</Link>
         </li>
         <li>
-          <Link to="/login">LOGIN</Link>
+          <Link to="/login">Services</Link>
         </li>
         <li>
-          <Link to="/reset">PASSWORD RESET</Link>
-        </li>
-        <li>
-          <Link to="/dashboard">DASHBOARD</Link>
+          <Link to="/reset">About</Link>
         </li>
       </ul>
     </footer>

@@ -65,7 +65,6 @@
       width: 600px;
     }
     p {
-      font-family: 'Open Sans', sans-serif;
       color: #7f888f;
       font-size: 17.3px;
       font-weight: 400;
@@ -314,4 +313,41 @@
       height: 35vh;
     }
   }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    flex-grow: 1;
+    margin: 2rem 1rem;
+
+    &-text-container {
+      margin-top: -45px;
+      background-color: #ffffff80;
+      p {
+        margin: 0;
+      }
+    }
+
+    &__wrap {
+
+        &--outer {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        &--inner {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+    }
+}
+
+.home-title {
+  margin: 1rem 0 4rem 0;
 }

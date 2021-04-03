@@ -1,14 +1,13 @@
-header {
-  width: 100%;
-  height: 62px;
-  background-color:rgba(69, 82, 99, 0.5);
+nav {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    ul {
+    display: flex;
+    justify-content: flex-end;
+    li {
+        margin: 0 1rem;
+    }
 }
-
-li {
-  margin: 20px;
-  font-family: Arial;
 }
-
-#title {
-  margin-right: auto;
-}
+ 

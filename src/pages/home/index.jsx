@@ -17,16 +17,36 @@ const Home = () => {
     fetchData();
   }, []);
 
+  function DemoContent({ children }) {
+    return (
+      <div className="outside">
+        <div className="inside">{children}</div>
+      </div>
+    );
+  }
+
   return (
     <>
-      <h2>Articles</h2>
-      <ul>
+      <h2 className="home-title">Articles</h2>
+      <div className="card__wrap--inner">
         {data.map((item) => (
-          <li key={item._id}>
-            <a href={item.title}>{item.title}</a>
-          </li>
+          <a href={item._id} key={item._id} className="card">
+            {item.image != null ? (
+              <img src={item.image} alt={item.title} />
+            ) : (
+              <></>
+            )}
+            <div className="card-text-container">
+              <p className="card-title">{item.title}</p>
+              {item.author != null ? (
+                <p className="card-author">{item.author}</p>
+              ) : (
+                <></>
+              )}
+            </div>
+          </a>
         ))}
-      </ul>
+      </div>
     </>
   );
 };

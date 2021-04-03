@@ -53,6 +53,13 @@ const Form = () => {
         ></textarea>
         {errors.content && <span>This field is required</span>}
         <FileBase64 multiple={false} onDone={({ base64 }) => setFile(base64)} />
+        <input
+          id="author"
+          label="author"
+          name="author"
+          ref={register({ required: true })}
+          placeholder="author"
+        />
         <button type="submit">Submit</button>
       </fieldset>
     </form>

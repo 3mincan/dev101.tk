@@ -1,11 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Userfront from "@userfront/react";
 import Home from "./pages/home";
 import Login from "./pages/login";
+import Admin from "./pages/admin";
 import PassReset from "./pages/passReset";
 import Dashboard from "./pages/dashboard";
-import Header from "./components/Header";
+import MainHeader from "./components/Header";
 import Footer from "./components/Footer";
 import "./App.scss";
 
@@ -22,7 +23,7 @@ Userfront.init("7n8wd5b6");
 export default function App() {
   return (
     <Router>
-      <Header />
+      <MainHeader />
       {/* <nav>
           <ul>
             <li>
@@ -49,6 +50,9 @@ export default function App() {
         </Route>
         <Route path="/dashboard">
           <Dashboard />
+        </Route>
+        <Route path="/admin">
+          <Admin />
         </Route>
         <Route path="/">
           <Home />
