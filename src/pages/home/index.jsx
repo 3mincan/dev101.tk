@@ -43,7 +43,7 @@ const Home = () => {
                     Posted {moment(`${item.createdAt}`).fromNow()}
                   </p>
                 </div>
-                <p className="card-title">{item.title}</p>
+                <h1 className="card-title">{item.title}</h1>
               </div>
             </a>
           ) : (
