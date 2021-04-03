@@ -6,8 +6,10 @@
     margin: 2rem 1rem;
 
     &-text-container {
-      margin-top: -45px;
-      background-color: #ffffff80;
+      position: relative;
+      bottom: 20%;
+      background-color: #ffffffe6;
+      font-weight: 900;
       p {
         margin: 0;
       }
