@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import * as moment from "moment";
 import "./index.scss";
 
 const apiEndpoint = "https://blogbackend.vercel.app/";
@@ -17,35 +18,60 @@ const Home = () => {
     fetchData();
   }, []);
 
-  function DemoContent({ children }) {
-    return (
-      <div className="outside">
-        <div className="inside">{children}</div>
-      </div>
-    );
-  }
-
   return (
     <>
       <h2 className="home-title">Articles</h2>
       <div className="card__wrap--inner">
-        {data.map((item) => (
-          <a href={item._id} key={item._id} className="card">
-            {item.image != null ? (
-              <img src={item.image} alt={item.title} />
-            ) : (
-              <></>
-            )}
-            <div className="card-text-container">
-              <p className="card-title">{item.title}</p>
-              {item.author != null ? (
-                <p className="card-author">{item.author}</p>
-              ) : (
-                <></>
-              )}
-            </div>
-          </a>
-        ))}
+        {data.map((item) =>
+          item.image != null ? (
+            <a
+              href={item._id}
+              key={item._id}
+              className="card"
+              style={{
+                backgroundImage: `url(${item.image})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              <div className="card-text-container">
+                <div className="first-line">
+                  <p className="card-author">
+                    {item.author != null ? `Posted By ${item.author}` : <></>}
+                  </p>
+                  <p className="card-time">
+                    Posted {moment(`${item.createdAt}`).fromNow()}
+                  </p>
+                </div>
+                <p className="card-title">{item.title}</p>
+              </div>
+            </a>
+          ) : (
+            <a
+              href={item._id}
+              key={item._id}
+              className="card"
+              style={{
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              <div className="card-text-container">
+                <div className="first-line">
+                  <p className="card-author">
+                    {item.author != null ? `Posted By ${item.author}` : <></>}
+                  </p>
+                  <p className="card-time">
+                    Posted {moment(`${item.createdAt}`).fromNow()}
+                  </p>
+                </div>
+                <p className="card-title">{item.title}</p>
+              </div>
+            </a>
+          )
+        )}
       </div>
     </>
   );

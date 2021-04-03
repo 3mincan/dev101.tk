@@ -1,9 +1,10 @@
 {
-  "name": "create-react-app",
+  "name": "blog-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@userfront/react": "^0.1.19",
+    "moment": "^2.29.1",
     "node-sass": "^4.14.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
