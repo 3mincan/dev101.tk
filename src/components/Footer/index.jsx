@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="flex-rw">
       <ul className="footer-list-top">
         <li>
-          <h4 className="footer-list-header">Office</h4>
+          <h2 className="footer-list-header">Address</h2>
         </li>
         <li>
           <a href="#" itemProp="significantLink">
@@ -27,7 +27,7 @@ const Footer = () => {
       </ul>
       <ul className="footer-list-top">
         <li>
-          <h4 className="footer-list-header">Social</h4>
+          <h2 className="footer-list-header">Social</h2>
         </li>
 
         <li>
@@ -42,7 +42,7 @@ const Footer = () => {
       </ul>
       <ul className="footer-list-top">
         <li id="help">
-          <h4 className="footer-list-header">Menu</h4>
+          <h2 className="footer-list-header">Menu</h2>
         </li>
 
         <li>
