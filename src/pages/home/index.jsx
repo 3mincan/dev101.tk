@@ -20,7 +20,6 @@ const Home = () => {
 
   return (
     <>
-      <h2 className="home-title">Articles</h2>
       <div className="card__wrap--inner">
         {data.map((item) =>
           item.image != null ? (
