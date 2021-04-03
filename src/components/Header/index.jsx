@@ -14,13 +14,14 @@ const Header = () => {
         </ul>
         <ul>
           <li>
-            <a href="#">Tab </a>
+            <a href="#">
+              <h4>Services</h4>
+            </a>
           </li>
           <li>
-            <a href="#">Tab </a>
-          </li>
-          <li>
-            <a href="#">Tab </a>
+            <a href="#">
+              <h4>Contact</h4>
+            </a>
           </li>
         </ul>
       </nav>
